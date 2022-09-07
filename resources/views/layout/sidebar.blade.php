@@ -1,6 +1,5 @@
 @php
 $resourceMenus = [
-
     'employees' => [
         'name' => 'employees',
         'isActive' => function ($routeName) {
@@ -8,11 +7,7 @@ $resourceMenus = [
             return in_array($routeName, ['employee-payments.index', 'employees.create', 'employees.index']);
             // $routeName == 'expenses.create' || $routeName == 'expenses.index';
         },
-        'routes' => [
-            ['name' => 'Employees', 'route' => 'employees.index'],
-            ['name' => 'Add Employee', 'route' => 'employees.create'],
-            ['name' => 'Employee Payments', 'route' => 'employee-payments.index']
-        ],
+        'routes' => [['name' => 'Employees', 'route' => 'employees.index'], ['name' => 'Add Employee', 'route' => 'employees.create'], ['name' => 'Employee Payments', 'route' => 'employee-payments.index']],
     ],
     'masters',
     'suppliers',
@@ -23,15 +18,10 @@ $resourceMenus = [
         'name' => 'products',
         'isActive' => function ($routeName) {
             //expense-categories.index
-            return in_array($routeName, ['products.index', 'products.create', 'categories.index','categories.create']);
+            return in_array($routeName, ['products.index', 'products.create', 'categories.index', 'categories.create']);
             // $routeName == 'expenses.create' || $routeName == 'expenses.index';
         },
-        'routes' => [
-            ['name' => 'Products', 'route' => 'products.index'],
-            ['name' => 'Add Products', 'route' => 'products.create'],
-            ['name' => 'categories', 'route' => 'categories.index'],
-            ['name' => 'add categories', 'route' => 'categories.create']
-        ],
+        'routes' => [['name' => 'Products', 'route' => 'products.index'], ['name' => 'Add Products', 'route' => 'products.create'], ['name' => 'categories', 'route' => 'categories.index'], ['name' => 'add categories', 'route' => 'categories.create']],
     ],
     'banks',
     'bank_accounts',
@@ -47,11 +37,7 @@ $resourceMenus = [
             return in_array($routeName, ['expense-categories.index', 'expenses.create', 'expenses.index']);
             // $routeName == 'expenses.create' || $routeName == 'expenses.index';
         },
-        'routes' => [
-            ['name' => 'Expenses', 'route' => 'expenses.index'],
-            ['name' => 'Add Expense', 'route' => 'expenses.create'],
-            ['name' => 'Expense Categories', 'route' => 'expense-categories.index']
-        ],
+        'routes' => [['name' => 'Expenses', 'route' => 'expenses.index'], ['name' => 'Add Expense', 'route' => 'expenses.create'], ['name' => 'Expense Categories', 'route' => 'expense-categories.index']],
     ],
 ];
 
@@ -77,7 +63,8 @@ $resourceRoutes = ['index', 'create'];
 
         <!-- Sidebar Menu -->
         <nav class="">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
            with font-awesome or any other icon font library -->
 
@@ -103,7 +90,9 @@ $resourceRoutes = ['index', 'create'];
                                 <i class="nav-icon fas fa-bars"></i>
                                 <p>{{ Str::of($menu)->headline() }} <i class="fas fa-angle-left right"></i></p>
                             </a>
-                            <ul class="nav nav-treeview ml-3" {!! Route::current()->getName() == $menu . '.index' || Route::current()->getName() == $menu . '.create' ? 'style="display: block;"' : '' !!}>
+                            <ul class="nav nav-treeview ml-3" {!! Route::current()->getName() == $menu . '.index' || Route::current()->getName() == $menu . '.create'
+                                ? 'style="display: block;"'
+                                : '' !!}>
                                 <li class="nav-item">
                                     <a href="{{ route($menu . '.index') }}"
                                         class="nav-link {{ Route::current()->getName() == $menu . '.index' ? 'active' : '' }}">
@@ -145,7 +134,13 @@ $resourceRoutes = ['index', 'create'];
                 @endforeach
 
 
-
+                <li class="nav-item">
+                    <a href="{{ route('contact-request') }}"
+                        class="nav-link {{ Route::current()->getName() == 'contact-request' ? 'active' : '' }}">
+                        <i class="fas fa-list nav-icon"></i>
+                        <p> Contact Request</p>
+                    </a>
+                </li>
 
 
 

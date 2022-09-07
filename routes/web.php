@@ -19,6 +19,7 @@ use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductionController;
 use App\Http\Controllers\BankAccountController;
+use App\Http\Controllers\ContactRequestController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\EmployeePaymentController;
 use App\Http\Controllers\ExpenseCategoryController;
@@ -36,8 +37,11 @@ Route::get('storage', function(){
 
 Auth::routes();
 Route::get('/', [PagesController::class,'index']);
+Route::post('/', [PagesController::class,'contactRequest'])->name('place-contact-request');
 Route::get('/gallery', [PagesController::class,'gallery']);
+
 Route::middleware('auth')->prefix('/admin')->group(function(){
+    Route::get('/contact-requests',[ContactRequestController::class,'index'])->name('contact-request');
 
     Route::get('/',[DashboardController::class,'dashboard']);
     Route::resource('/employees',EmployeeController::class);

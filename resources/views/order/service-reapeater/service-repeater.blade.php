@@ -87,7 +87,7 @@
 
                 if (service != undefined && service != null) {
 
-                    if(service['image'].length > 0){
+                    if(service['image'] != null && service['image'].length > 0){
                         viewIcon.attr('data-image', service['image'])
                         viewIcon.addClass('d-block')
                     }else{

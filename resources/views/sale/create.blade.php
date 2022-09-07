@@ -142,6 +142,7 @@
 
 
 @section('css')
+<link href="{{ asset('css/select2.css')}}" rel="stylesheet" />
 @stack('inner-style')
     @livewireStyles
     <style>
@@ -156,6 +157,7 @@
 
 @section('script')
     @livewireScripts
+    <script src="{{ asset('js/select2.js')}}"></script>
     @stack('inner-script')
     <script>
 

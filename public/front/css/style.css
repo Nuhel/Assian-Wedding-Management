@@ -287,6 +287,7 @@ a:focus {
     font-size: 16px;
     margin-top: 20px;
     margin-bottom: 1.5rem;
+    text-align: justify
 }
 
 .slider_section .detail-box a {
@@ -305,6 +306,13 @@ a:focus {
 .slider_section .detail-box a:hover {
   background-color: transparent;
   color: #f7444e;
+}
+
+.slider_section .slider-info{
+    padding: 15px;
+    background: grey;
+    border-radius: 10px;
+    color: white;
 }
 
 .slider_section .img-box img {

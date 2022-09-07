@@ -34,9 +34,14 @@
 
 @media (max-width: 767px) {
 
+    .slider_section .slider-info{
+        padding: unset;
+        background: none;
+        color: black;
+    }
   .slider_bg_box img {
     -o-object-position: top center;
-    object-position: top center;
+    object-position: top left;
   }
 
   .arrival_section .arrival_bg_box img {

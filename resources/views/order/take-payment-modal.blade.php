@@ -66,7 +66,7 @@
 
         $('#take-payment-form').on('submit', function(event) {
             event.preventDefault();
-            var baseUrl = "{{ URL::to('/orders/') }}";
+            var baseUrl = "{{ route('orders.index') }}";
             var id = $("input[name='id']").val();
             var url = baseUrl + '/' + id + '/take-payment'
             var bodyFormData = new FormData();
